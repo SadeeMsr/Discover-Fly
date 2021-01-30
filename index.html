@@ -30,41 +30,55 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="bookingForm-One" class="booking-form">
             <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            <div class="mb-3">
+                <label class="form-label">From</label>
+                <select class="form-select shadow-lg p-3 mb-5 bg-white rounded">
+                    <option>Dhaka, Bangladesh</option>
+                    <option>Sylhet, Bangladesh</option>
+                    <option>Khulna, Bangladesh</option>
+                    <option>Chittagong, Bangladesh</option>
+                    <option>Cox's Bazar, Chittagong, Bangladesh</option>
+                </select>
             </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            <div class="mb-3">
+                <label class="form-label">To</label>
+                <select class="form-select shadow-lg p-3 mb-5 bg-white rounded">
+                    <option>Cox's Bazar, Chittagong, Bangladesh</option>
+                    <option>Dhaka, Bangladesh</option>
+                    <option>Sylhet, Bangladesh</option>
+                    <option>Khulna, Bangladesh</option>
+                    <option>Chittagong, Bangladesh</option>
+                </select>
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                    <label>Departure</label>
+                    <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
-                    <label for="">Return</label>
+                    <label>Return</label>
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
+
+            <!---------------------Buttons--------------------->
+
             <div class="input-group f-class">
                 <div>
                     <label>First Class ($150)</label>
                     <input id="firstClassSeat-Count" class="inp-width" type="text" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                   
-                    <button onclick="calculateSeatChangedPrice('firstClassSeat-Count' , true) "
-                        class="btn btn-default"><i class="fas fa-plus"></i></button>
 
+                    <button onclick="calculateSeatChangedPrice('firstClassSeat-Count' , true) "
+                        class="btn btn-outline-info"><i class="fas fa-plus"></i></button>
                     <button onclick="calculateSeatChangedPrice('firstClassSeat-Count' , false) "
-                        class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        class="btn btn-outline-info"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
-
+           
             <div class="input-group f-class">
                 <div>
                     <label>Economy ($100)</label>
@@ -73,19 +87,21 @@
                 <div class="plus-minus-btn">
 
                     <button onclick="calculateSeatChangedPrice('economyClassSeat-Count' , true);"
-                        class="btn btn-default"><i class="fas fa-plus"></i></button>
-
+                        class="btn btn-outline-info"><i class="fas fa-plus"></i></button>
                     <button onclick="calculateSeatChangedPrice('economyClassSeat-Count' , false);"
-                        class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        class="btn btn-outline-info"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
+
+            <!----------------Calculations------------------------------>
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="subTotal">000</span></p>
+                        <p>$ <span id="subTotal">0</span></p>
                     </div>
                 </div>
 
@@ -94,7 +110,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="tax">00</span></p>
+                        <p>$ <span id="tax">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -103,62 +119,91 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="grandTotal">000</span></p>
+                        <p>$ <span id="grandTotal">0</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button onclick="showBookNow()" class="btn-style">Book Now</button>
         </div>
+        
+        <!-----------------------Cover Text part-------------------->
 
         <div class="booking-content">
-            <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
-                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
-                voluptatibus quam</p>
+            <h1> <span id="Cover-Text">discover</span> <br> around the world</h1>
+            <p>Great opportunities to travel | Take a holiday | Visit Family | Enjoy yourself</p>
         </div>
-        </section>
 
+        <!-----------------------Hidden Check Availability Form in "Book Now" Button-------------------->
 
-        <script>
+        <div id="bookingForm-Two" class="booking-form">
+            <form>
+                <fieldset>
+                    <legend>Check Availability</legend>
+                    <div class="mb-3">
+                        <label class="form-label">Airlines</label>
+                        <select class="form-select shadow-lg p-3 mb-5 bg-white rounded">
+                            <option>Biman Bangladesh</option>
+                            <option>Novo Airlines</option>
+                            <option>Shuvro Airlines</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Time</label>
+                        <select class="form-select shadow-lg p-3 mb-5 bg-white rounded">
+                            <option>8.15 AM</option>
+                            <option>12.30 PM</option>
+                            <option>5.30 PM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </fieldset>
+            </form>
+        </div>
 
-            function calculateSeatChangedPrice(id, isIncrease) 
-            {
-                const seatInput = document.getElementById(id);
-                const seatCount = parseInt(seatInput.value);
+    </main>
 
-                let seatNewCount = 0;
-                if (isIncrease == false && seatCount > 0)
-                {
-                    seatNewCount = seatCount - 1;
-                }
-                else if (isIncrease == true) 
-                {
-                    seatNewCount = seatCount + 1;
-                }
-                seatInput.value = seatNewCount;
+                <!----------------Javascript Functions-------------------->
+    <script>
 
-                calculateTotal();
-            };
+        function calculateSeatChangedPrice(id, isIncrease) {
+            const seatInput = document.getElementById(id);
+            const seatCount = parseInt(seatInput.value);
 
-            function calculateTotal() 
-            {
-                const fClassSeatPrice = parseInt(document.getElementById('firstClassSeat-Count').value) * 150;
-                const eClassSeatPrice = parseInt(document.getElementById('economyClassSeat-Count').value) * 100;
-
-                const subTotal = fClassSeatPrice + eClassSeatPrice;
-                document.getElementById("subTotal").innerText = subTotal;
-
-                const tax = subTotal * 0.1;
-                document.getElementById("tax").innerText = tax;
-
-                const grandTotalPrice = (subTotal + tax);
-                document.getElementById("grandTotal").innerText = grandTotalPrice;
-
+            let seatNewCount = 0;
+            if (isIncrease == false && seatCount > 0) {
+                seatNewCount = seatCount - 1;
             }
+            else if (isIncrease == true) {
+                seatNewCount = seatCount + 1;
+            }
+            seatInput.value = seatNewCount;
 
-        </script>
+            calculateTotal();
+        };
 
-        <!--Thank You-->
+        function calculateTotal() {
+            const fClassSeatPrice = parseInt(document.getElementById('firstClassSeat-Count').value) * 150;
+            const eClassSeatPrice = parseInt(document.getElementById('economyClassSeat-Count').value) * 100;
+
+            const subTotal = fClassSeatPrice + eClassSeatPrice;
+            document.getElementById("subTotal").innerText = subTotal;
+
+            const tax = subTotal * 0.1;
+            document.getElementById("tax").innerText = tax;
+
+            const grandTotalPrice = subTotal + tax;
+            document.getElementById("grandTotal").innerText = grandTotalPrice;
+
+        }
+
+        function showBookNow() {
+            document.getElementById("bookingForm-One").style.display = "none";
+            document.getElementById("bookingForm-Two").style.display = "block";
+        }
+
+    </script>
+
+    <!--Thank You-->
 </body>
 
 </html>

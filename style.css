@@ -19,11 +19,7 @@ nav{
     width: 100%;
     padding: 20px 0;
 }
-.container{
-    width: 1200px;
-    max-width: 85%;
-    margin: 0 auto;
-}
+
 nav ul{
     display: flex;
     justify-content: flex-end;
@@ -47,11 +43,25 @@ nav ul li a:hover, a.active{
     align-items: center;
 }
 .booking-form{
-    background-color: #fff;
+    background-color: lightblue;
     border: 1px solid #ddd;
     padding: 25px;
     border-radius: 5px;
     float: left;
+}
+#Cover-Text{
+    font-size: 72px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#bookingForm-Two{
+    display: none;
+    background-color: lightblue;
+    margin-top: 100px;
+    margin-left: 200px;
+    width:400px;
+    height: auto;
 }
 .booking-form h3{
     margin: 10px 0px;
@@ -59,13 +69,16 @@ nav ul li a:hover, a.active{
 .booking-form  .input-group{
     margin: 10px 0;
 }
+label{
+    color: grey;
+}
 .f-class{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .inp-width{
-    min-width: 250px;
+    min-width: 300px;
 }
 .plus-minus-btn{
     color: #3352F2;
@@ -98,7 +111,8 @@ nav ul li a:hover, a.active{
 }
 .booking-content{
     color: #fff;
-    width: 80%;
+    width: 450px;
+    margin-left:100px;
 }
 .booking-content h1{
     font-size: 70px;
